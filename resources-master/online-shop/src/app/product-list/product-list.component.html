@@ -1,26 +1,10 @@
 <div>
         <h1>Products
                 <div class="float-right">
-                    <button class="btn btn-lg btn-info btn-circle"><i class="fa fa-shopping-cart"></i></button>
-                    <button class="btn btn-lg btn-info btn-circle ml-2">Add</button>
+                        <a [routerLink]="['/cart']"><button class="btn btn-lg btn-info btn-circle"><i class="fa fa-shopping-cart"></i></button></a>
+                        <a [routerLink]="['/products/new']"><button class="btn btn-lg btn-info btn-circle ml-2">Add Product</button></a>
                 </div>
         </h1>   
         
 </div>
-
-<table class="table table-hover mt-5">
-    <thead>
-        <tr class="thead-dark">
-            <th>Category</th>
-            <th>Product Name</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let productHeader of productHeaders">
-            <td>{{ productHeader.category }}</td>
-            <td><a [routerLink]="['/product', productHeader.id]">{{ productHeader.name }}</a></td>
-            <td>{{ productHeader.price }}</td>
-        </tr>
-    </tbody>
-</table>
+<app-product-list-table [productHeaders]="productHeaders"></app-product-list-table>

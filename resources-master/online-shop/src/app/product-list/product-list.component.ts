@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductHeader } from '../_models/product-header.model';
+import { HttpClient } from '@angular/common/http';
+import { ProductService } from '../_services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -16,9 +18,14 @@ export class ProductListComponent implements OnInit {
     {id: 5, category: 'Lorem', name: 'Ipsum', price: 250},
   ]
 
-  constructor() { }
+  constructor(private http: HttpClient,
+      private productService : ProductService) { }  
 
   ngOnInit() {
+    this.productService.getProducts()
+      .subscribe(
+        productHeaders => this.productHeaders = productHeaders,
+      );
   }
 
 }

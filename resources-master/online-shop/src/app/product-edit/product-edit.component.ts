@@ -2,17 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../_models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../_services/product.service';
-import { $ } from 'protractor';
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  selector: 'app-product-edit',
+  templateUrl: './product-edit.component.html',
+  styleUrls: ['./product-edit.component.css']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductEditComponent implements OnInit {
   product : Product;
   id : number;
-  
+
   constructor(private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService) { }
@@ -25,9 +24,11 @@ export class ProductDetailComponent implements OnInit {
       );
   }
 
-  deleteProduct() {
-    this.productService.deleteProduct(this.id)
-      .subscribe();
-    this.router.navigateByUrl('/products');
+  addProduct() {
+    //this.product.name = name;
+    //this.product.category = category;
+    //this.product.image = image;
+    //this.productService.addProduct()
   }
+
 }

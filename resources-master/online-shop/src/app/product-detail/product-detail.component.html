@@ -1,19 +1,13 @@
-<h1>
-    {{ product.name }}
-    <div class="float-right">
-        <a [routerLink]="['/product', product.id]"><button class="btn btn-lg btn-info btn-circle">Edit</button></a>
-        <button class="btn btn-lg btn-info btn-circle ml-2">Delete</button>
-    </div>
-</h1>
-
-<table class="table table-borderless">
-    <tr>
-        <td>Name</td><td>{{ product.name }}</td>
-    </tr><tr>
-        <td>Category</td><td>{{ product.category }}</td>
-    </tr><tr>
-        <td>Price</td><td>{{ product.price }}</td>
-    </tr><tr>
-        <td>Description</td><td>{{ product.description }}</td>
-    </tr>
-</table>
+<div class="container" *ngIf="product">
+    <h1>
+        {{ product.name }}
+        <div class="float-right">
+            <button type="button" class="btn btn-lg btn-info btn-circle mr-2">Add to Cart</button>
+            <a [routerLink]="['/product', product.id, 'edit']"><button class="btn btn-lg btn-success btn-circle">Edit</button></a>
+            <button type="button" class="btn btn-lg btn-danger btn-circle ml-2" data-toggle="modal" data-target="#deleteModalCenter">Delete</button>
+            <app-product-detail-delete-modal [productname]="product.name"></app-product-detail-delete-modal>
+        </div>
+    </h1>
+    <a [routerLink]="['/products']"><button type="button" class="btn btn-sm btn-secondary btn-circle sm-2"><i class="fa fa-arrow-left"></i> Return</button></a>
+    <app-product-detail-fields [product]="product"></app-product-detail-fields>
+</div>
