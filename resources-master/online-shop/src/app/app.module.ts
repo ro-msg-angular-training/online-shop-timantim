@@ -15,7 +15,12 @@ import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductListTableComponent } from './product-list/product-list-table/product-list-table.component';
 import { ProductDetailFieldsComponent } from './product-detail/product-detail-fields/product-detail-fields.component';
 import { ProductDetailDeleteModalComponent } from './product-detail/product-detail-delete-modal/product-detail-delete-modal.component';
-import { ProductEditFieldsComponent } from './product-edit/product-edit-fields/product-edit-fields.component';
+import { CartTableComponent } from './cart/cart-table/cart-table.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProductFieldsComponent } from './product-fields/product-fields.component';
+import { AuthGuard } from './_guards/auth.guard';
+import { CartService } from './_services/cart.service';
+import { OrderService } from './_services/order.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,9 @@ import { ProductEditFieldsComponent } from './product-edit/product-edit-fields/p
     ProductListTableComponent,
     ProductDetailFieldsComponent,
     ProductDetailDeleteModalComponent,
-    ProductEditFieldsComponent    
+    CartTableComponent,
+    PageNotFoundComponent,
+    ProductFieldsComponent    
   ],
   imports: [
     BrowserModule,
@@ -37,7 +44,7 @@ import { ProductEditFieldsComponent } from './product-edit/product-edit-fields/p
     HttpClientModule,
     FormsModule
   ],
-  providers: [ProductService],
+  providers: [ProductService, CartService, OrderService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

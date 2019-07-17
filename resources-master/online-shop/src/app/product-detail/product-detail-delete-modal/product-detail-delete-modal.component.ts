@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Product } from 'src/app/_models/product.model';
 
 @Component({
   selector: 'app-product-detail-delete-modal',
@@ -6,11 +7,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./product-detail-delete-modal.component.css']
 })
 export class ProductDetailDeleteModalComponent implements OnInit {
-  @Input() productname : string;
+  @Input() product : Product;
+  @Input() deleteProduct : Function;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  doDelete(product : Product) {
+    this.deleteProduct(product);
   }
 
 }

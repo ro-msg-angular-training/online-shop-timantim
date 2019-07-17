@@ -2,10 +2,10 @@
     <h1>
         {{ product.name }}
         <div class="float-right">
-            <button type="button" class="btn btn-lg btn-info btn-circle mr-2">Add to Cart</button>
+            <button type="button" class="btn btn-lg btn-info btn-circle mr-2" (click)="addToCart()">Add to Cart</button>
             <a [routerLink]="['/product', product.id, 'edit']"><button class="btn btn-lg btn-success btn-circle">Edit</button></a>
             <button type="button" class="btn btn-lg btn-danger btn-circle ml-2" data-toggle="modal" data-target="#deleteModalCenter">Delete</button>
-            <app-product-detail-delete-modal [productname]="product.name"></app-product-detail-delete-modal>
+            <app-product-detail-delete-modal [product]="product" [deleteProduct]="deleteProduct.bind(this)"></app-product-detail-delete-modal>
         </div>
     </h1>
     <a [routerLink]="['/products']"><button type="button" class="btn btn-sm btn-secondary btn-circle sm-2"><i class="fa fa-arrow-left"></i> Return</button></a>

@@ -8,7 +8,7 @@ import { ProductService } from '../_services/product.service';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit{
 
   productHeaders : ProductHeader[] = [
     {id: 1, category: 'Lorem', name: 'Ipsum', price: 100},

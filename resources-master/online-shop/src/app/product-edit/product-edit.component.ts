@@ -24,11 +24,9 @@ export class ProductEditComponent implements OnInit {
       );
   }
 
-  addProduct() {
-    //this.product.name = name;
-    //this.product.category = category;
-    //this.product.image = image;
-    //this.productService.addProduct()
+  saveProduct(product : Product) {
+    this.productService.updateProduct(product).subscribe()
+    this.router.navigate(['..']);
   }
 
 }

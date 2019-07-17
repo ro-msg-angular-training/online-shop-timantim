@@ -29,9 +29,9 @@ export class ProductService {
       .post<Product>(this.productURL, product);
   }
 
-  updateProduct(id : number, product : Product) : Observable<Product> {
+  updateProduct(product : Product) : Observable<Product> {
     return this.httpClient
-      .put<Product>(this.productURL + '/' + id, product);
+      .put<Product>(this.productURL + '/' + product.id, product);
   }
 
   deleteProduct(id : number) : Observable<{}> {
