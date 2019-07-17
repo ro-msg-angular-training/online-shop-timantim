@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control col-sm-4" id="name"
+                required minlength="4"
+                [(ngModel)]="product.name" name="name" #name="ngModel">
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="alert alert-danger col-sm-4 ">
+            <div *ngIf="name.errors.required">
+            Name is required.
+            </div>
+            <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+            </div> 
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" class="form-control col-sm-4" id="category"
+            required
+            [(ngModel)]="product.category" name="category" #category="ngModel">
+        <div *ngIf="category.invalid && (category.dirty || category.touched)"
+        class="alert alert-danger col-sm-4 ">
+            <div *ngIf="category.errors.required">
+            Category is required.
+            </div>
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="image">Image</label>
+        <input type="text" class="form-control col-sm-4" id="image"
+                required pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
+                [(ngModel)]="product.image" name="image" #image="ngModel">
+        <div *ngIf="image.invalid && (image.dirty || image.touched)"
+        class="alert alert-danger col-sm-4 ">
+            <div *ngIf="image.errors.required">
+            Image is required.
+            </div>
+            <div *ngIf="image.errors.pattern">
+            Invalid image link given.
+            </div>
+        </div>         
+    </div>
+    <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" class="form-control col-sm-4" id="price"
+                required min="0" pattern="^[0-9]*$"
+                [(ngModel)]="product.price" name="price" #price="ngModel">
+        <div *ngIf="price.invalid && (price.dirty || price.touched)"
+        class="alert alert-danger col-sm-4 ">
+            <div *ngIf="price.errors.required">
+            Price is required.
+            </div>
+            <div *ngIf="price.errors.min">
+            Price must be positive (above 0).
+            </div> 
+            <div *ngIf="price.errors.pattern">
+            Price must be a number.
+            </div>
+        </div> 
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control col-sm-4" id="description"
+                [(ngModel)]="product.description" name="description" #description="ngModel">
+        </textarea>
+    </div>
+    <div class="mt-4">
+        <a routerLink=".."><button class="btn btn-lg btn-secondary btn-circle">Cancel</button></a>
+        <button class="btn btn-lg btn-info btn-circle ml-4" (click)="saveProduct(product)">Save</button>
+    </div>
+</div>
