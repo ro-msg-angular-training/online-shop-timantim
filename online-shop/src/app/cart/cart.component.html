@@ -1,10 +1,13 @@
 <div>
     <h1>Shopping Cart <i class="fa fa-shopping-cart"></i></h1>
-    <a [routerLink]="['/products']"><button type="button" class="btn btn-sm btn-secondary btn-circle sm-2"><i class="fa fa-arrow-left"></i> Return</button></a>
-    <div class="float-right"><button type="button" class="btn btn-lg btn-info btn-circle mr-2" (click)="checkout()">Checkout</button></div>
+    <a [routerLink]="['/products']"><button type="button" class="btn btn-sm btn-secondary btn-circle sm-2"><i
+                class="fa fa-arrow-left"></i> Return</button></a>
+    <div class="float-right"><button type="button" class="btn btn-lg btn-info btn-circle mr-2"
+            (click)="checkout()">Checkout</button></div>
 </div>
 <hr class="mt-5">
-<app-cart-table *ngIf="cartItems.length" [cartItems]="cartItems" [incrementQuantity]="incrementQuantity.bind(this)" [decrementQuantity]="decrementQuantity.bind(this)"></app-cart-table>
-<div class="alert alert-warning mt-5" *ngIf="!cartItems.length" role="alert">
+<app-cart-table *ngIf="cartItems.size" [cartItems]="cartItems" (incrementQuantity)="incrementQuantity($event)"
+    (decrementQuantity)="decrementQuantity($event)"></app-cart-table>
+<div class="alert alert-warning mt-5" *ngIf="!cartItems.size" role="alert">
     Cart is empty!
 </div>

@@ -1,6 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { CartItem } from 'src/app/_models/cart-item.model';
-import { EventEmitter } from 'events';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CartItem } from 'src/app/core/models/cart-item.model';
 
 @Component({
   selector: 'app-cart-table',
@@ -8,21 +7,21 @@ import { EventEmitter } from 'events';
   styleUrls: ['./cart-table.component.css']
 })
 export class CartTableComponent implements OnInit {
-  @Input() cartItems : CartItem[] 
-  @Input() incrementQuantity : Function
-  @Input() decrementQuantity : Function
+  @Input() cartItems: CartItem[]
+  @Output() incrementQuantity = new EventEmitter()
+  @Output() decrementQuantity = new EventEmitter()
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  incrementItemQuantity(cartItem : CartItem) {
-    this.incrementQuantity(cartItem);
+  incrementItemQuantity(cartItem: CartItem) {
+    this.incrementQuantity.emit(cartItem);
   }
 
-  decrementItemQuantity(cartItem : CartItem) {
-    this.decrementQuantity(cartItem);
+  decrementItemQuantity(cartItem: CartItem) {
+    this.decrementQuantity.emit(cartItem); 
   }
 
 }

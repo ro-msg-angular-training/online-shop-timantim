@@ -9,7 +9,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductService } from './_services/product.service';
+import { ProductService } from './core/services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductAddComponent } from './product-add/product-add.component';
@@ -19,9 +19,9 @@ import { ProductDetailDeleteModalComponent } from './product-detail/product-deta
 import { CartTableComponent } from './cart/cart-table/cart-table.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductFieldsComponent } from './product-fields/product-fields.component';
-import { AuthGuard } from './_guards/auth.guard';
-import { CartService } from './_services/cart.service';
-import { OrderService } from './_services/order.service';
+import { AuthGuard } from './core/guards/auth.guard';
+import { CartService } from './core/services/cart.service';
+import { OrderService } from './core/services/order.service';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 
 @NgModule({
@@ -39,7 +39,7 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     CartTableComponent,
     PageNotFoundComponent,
     ProductFieldsComponent,
-    LoginFormComponent    
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,

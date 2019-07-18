@@ -1,28 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductHeader } from '../_models/product-header.model';
+import { ProductHeader } from '../core/models/product-header.model';
 import { HttpClient } from '@angular/common/http';
-import { ProductService } from '../_services/product.service';
-import { AuthenticationService } from '../_services/authentication.service';
+import { ProductService } from '../core/services/product.service';
+import { AuthenticationService } from '../core/services/authentication.service';
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  templateUrl: './product-list.component.html'
 })
 export class ProductListComponent implements OnInit{
 
-  productHeaders : ProductHeader[] = [
-    {id: 1, category: 'Lorem', name: 'Ipsum', price: 100},
-    {id: 2, category: 'Lorem', name: 'Ipsum', price: 150},
-    {id: 3, category: 'Lorem', name: 'Ipsum', price: 150},
-    {id: 4, category: 'Lorem', name: 'Ipsum', price: 200},
-    {id: 5, category: 'Lorem', name: 'Ipsum', price: 250},
-  ]
+  productHeaders : ProductHeader[] = []
   private isAdmin : boolean;
   private isCustomer : boolean;
 
-  constructor(private http: HttpClient,
-      private authenticationService : AuthenticationService,
+  constructor(private authenticationService : AuthenticationService,
       private productService : ProductService) { }  
 
   ngOnInit() {

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
-import { ProductHeader } from '../_models/product-header.model';
+import { ProductHeader } from '../models/product-header.model';
 import * as _ from 'lodash';
-import { Product } from '../_models/product.model';
+import { Product } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,7 @@ export class ProductService {
 
   deleteProduct(id : number) : Observable<{}> {
     return this.httpClient 
-      .delete(this.productURL);
+      .delete(this.productURL + '/' + id);
   }
 
 }

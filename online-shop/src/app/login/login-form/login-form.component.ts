@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Credentials } from 'src/app/_models/credentials.model';
+import { Credentials } from 'src/app/core/models/credentials.model';
 
 @Component({
   selector: 'app-login-form',
@@ -8,9 +8,9 @@ import { Credentials } from 'src/app/_models/credentials.model';
 })
 export class LoginFormComponent implements OnInit {
 
-  @Input() login : Function;
-  @Input() error : string;
-  credentials : Credentials = new Credentials();
+  @Input() login: Function;
+  @Input() error: string;
+  credentials: Credentials = new Credentials();
 
   constructor() { }
 

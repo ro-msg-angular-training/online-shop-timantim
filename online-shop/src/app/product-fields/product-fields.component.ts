@@ -1,22 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Product } from '../_models/product.model';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Product } from '../core/models/product.model';
 
 @Component({
   selector: 'app-product-fields',
   templateUrl: './product-fields.component.html',
   styleUrls: ['./product-fields.component.css']
 })
-export class ProductFieldsComponent implements OnInit {
+export class ProductFieldsComponent {
   @Input() product : Product;
-  @Input() saveProduct : Function;
+  @Output() saveProduct = new EventEmitter();
   
   constructor() { }
 
-  ngOnInit() {
-  }
-
-  doSave(product : Product) {
-    this.saveProduct(product);
+  doSave() {
+    this.saveProduct.emit(this.product);
   }
 
 }

@@ -1,18 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product } from 'src/app/_models/product.model';
+import { Product } from 'src/app/core/models/product.model';
 
 @Component({
   selector: 'app-product-detail-fields',
   templateUrl: './product-detail-fields.component.html',
   styleUrls: ['./product-detail-fields.component.css']
 })
-export class ProductDetailFieldsComponent implements OnInit {
+export class ProductDetailFieldsComponent {
 
-  @Input() product : Product;
+  @Input() product: Product;
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

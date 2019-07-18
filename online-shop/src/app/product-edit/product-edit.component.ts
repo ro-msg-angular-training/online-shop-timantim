@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../_models/product.model';
+import { Product } from '../core/models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../_services/product.service';
-import { AuthenticationService } from '../_services/authentication.service';
+import { ProductService } from '../core/services/product.service';
 
 @Component({
   selector: 'app-product-edit',
-  templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.css']
+  templateUrl: './product-edit.component.html'
 })
 export class ProductEditComponent implements OnInit {
   product : Product;
@@ -18,7 +16,7 @@ export class ProductEditComponent implements OnInit {
     private productService: ProductService) { }
 
   ngOnInit() {
-    this.id = +this.route.snapshot.paramMap.get('id');
+    this.id = parseInt(this.route.snapshot.paramMap.get('id'));
     this.productService.getProduct(this.id)
       .subscribe(
         product => this.product = product,
