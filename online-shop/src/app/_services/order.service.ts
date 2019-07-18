@@ -13,7 +13,7 @@ export class OrderService {
 
   constructor(private httpClient: HttpClient) { }
 
-  addProduct(order : Order) : Observable<Order> {
+  createOrder(order : Order) : Observable<Order> {
     return this.httpClient
       .post<Order>(this.orderURL, order);
   }

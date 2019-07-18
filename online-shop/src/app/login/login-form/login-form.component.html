@@ -29,6 +29,7 @@
             </div>--> 
         </div>
         <div class="mt-4">
+            <div *ngIf="error" class="alert alert-danger">Login failed! Could not log you in with those credentials!</div>
             <button class="btn btn-lg btn-info btn-circle" (click)="onSubmit()">Login</button>
         </div>
     </div>

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  private error : string;
 
   constructor(private router : Router,
     private authenticationService : AuthenticationService) { }
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl('products');
         },
         error => {
-            alert(error.message);
+            this.error = error.message;
         });
   }
 

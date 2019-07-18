@@ -15,12 +15,9 @@ export class ProductEditComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private authenticationService : AuthenticationService,
     private productService: ProductService) { }
 
   ngOnInit() {
-    if(this.authenticationService.isAdmin == false)
-      this.router.navigate(['..']);
     this.id = +this.route.snapshot.paramMap.get('id');
     this.productService.getProduct(this.id)
       .subscribe(

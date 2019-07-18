@@ -45,6 +45,6 @@ export class ProductDetailComponent implements OnInit {
       icon: "fa fa-info-circle",
       title: "Added to cart!",
       message: "You have successfully added " + this.product.name + " to your shopping cart!",
-    });
+    }, {delay: 1000});
   }
 }

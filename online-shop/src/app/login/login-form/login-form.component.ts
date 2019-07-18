@@ -9,6 +9,7 @@ import { Credentials } from 'src/app/_models/credentials.model';
 export class LoginFormComponent implements OnInit {
 
   @Input() login : Function;
+  @Input() error : string;
   credentials : Credentials = new Credentials();
 
   constructor() { }
