@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
   login(credentials : Credentials) {
     this.authenticationService.login(credentials)
-    .pipe(first())
     .subscribe(
         data => {
             this.router.navigateByUrl('products');

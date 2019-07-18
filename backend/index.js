@@ -19,7 +19,7 @@ function copy(id, { name, category, price, description, image }) {
     return { id, name, category, price, description, image };
 }
 
-let nextId = Math.max.apply(Math, Object.keys(products).map(n => parseInt(n, 10))) + 1;
+let nextId = Math.max.apply(Math, Object.keys(products).map(n => parseInt(n, 10)));
 
 app.get('/products', function (_, res) {
     res.send(Object.values(products)
@@ -58,6 +58,7 @@ app.post('/products', function (req, res) {
     const product = copy(nextId, req.body || {});
     products[id] = product;
     res.send(product);
+	nextId++;
 });
 
 app.post('/login', function (req, res) {
