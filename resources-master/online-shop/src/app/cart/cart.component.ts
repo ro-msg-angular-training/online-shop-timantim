@@ -30,7 +30,11 @@ export class CartComponent implements OnInit {
   checkout() {
     if(this.cartService.isEmpty() == true)
       {
+<<<<<<< Updated upstream
         // todo: create order and call service
+=======
+        // todo: create order and call service
+>>>>>>> Stashed changes
         // todo: show message that the order was filled
         this.cartService.clearCart();
         $.notify({
@@ -49,6 +53,6 @@ export class CartComponent implements OnInit {
         }, { type: "danger"},
         );
       }
-  }
+  }  
 
 }
