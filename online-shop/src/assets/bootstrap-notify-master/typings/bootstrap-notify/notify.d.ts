@@ -1,4 +1,4 @@
-
+/// <reference path="../jquery/jquery.d.ts" />
 
 /* tslint:disable: interface-name no-any */
 

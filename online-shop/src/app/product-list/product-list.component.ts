@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductHeader } from '../_models/product-header.model';
 import { HttpClient } from '@angular/common/http';
 import { ProductService } from '../_services/product.service';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-product-list',
@@ -17,8 +18,11 @@ export class ProductListComponent implements OnInit{
     {id: 4, category: 'Lorem', name: 'Ipsum', price: 200},
     {id: 5, category: 'Lorem', name: 'Ipsum', price: 250},
   ]
+  private isAdmin : boolean;
+  private isCustomer : boolean;
 
   constructor(private http: HttpClient,
+      private authenticationService : AuthenticationService,
       private productService : ProductService) { }  
 
   ngOnInit() {
@@ -26,6 +30,8 @@ export class ProductListComponent implements OnInit{
       .subscribe(
         productHeaders => this.productHeaders = productHeaders,
       );
+    this.isAdmin = this.authenticationService.isAdmin;
+    this.isCustomer = this.authenticationService.isCustomer;
   }
 
 }

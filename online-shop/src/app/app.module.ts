@@ -22,6 +22,7 @@ import { ProductFieldsComponent } from './product-fields/product-fields.componen
 import { AuthGuard } from './_guards/auth.guard';
 import { CartService } from './_services/cart.service';
 import { OrderService } from './_services/order.service';
+import { LoginFormComponent } from './login/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { OrderService } from './_services/order.service';
     ProductDetailDeleteModalComponent,
     CartTableComponent,
     PageNotFoundComponent,
-    ProductFieldsComponent    
+    ProductFieldsComponent,
+    LoginFormComponent    
   ],
   imports: [
     BrowserModule,

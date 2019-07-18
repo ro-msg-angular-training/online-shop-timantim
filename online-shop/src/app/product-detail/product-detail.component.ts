@@ -3,6 +3,8 @@ import { Product } from '../_models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../_services/product.service';
 import { CartService } from '../_services/cart.service';
+import { AuthenticationService } from '../_services/authentication.service';
+import { User } from '../_models/user.model';
 
 @Component({
   selector: 'app-product-detail',
@@ -12,9 +14,12 @@ import { CartService } from '../_services/cart.service';
 export class ProductDetailComponent implements OnInit {
   product : Product;
   id : number;
+  isAdmin : boolean;
+  isCustomer : boolean;
   
   constructor(private route: ActivatedRoute,
     private router: Router,
+    private authenticationService : AuthenticationService,
     private productService: ProductService,
     private cartService : CartService) { }
 
@@ -24,6 +29,8 @@ export class ProductDetailComponent implements OnInit {
       .subscribe(
         product => this.product = product,
       );
+    this.isAdmin = this.authenticationService.isAdmin;
+    this.isCustomer = this.authenticationService.isCustomer;
   }
 
   deleteProduct() {

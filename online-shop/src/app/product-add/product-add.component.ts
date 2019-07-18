@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../_models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../_services/product.service';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
   selector: 'app-product-add',
@@ -14,9 +15,12 @@ export class ProductAddComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
+    private authenticationService : AuthenticationService,
     private productService: ProductService) { }
 
   ngOnInit() {
+    if(this.authenticationService.isAdmin == false)
+      this.router.navigate(['..']);
   }
 
   saveProduct(product : Product) {

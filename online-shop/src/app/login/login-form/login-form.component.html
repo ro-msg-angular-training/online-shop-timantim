@@ -1,0 +1,35 @@
+<div class="jumbotron col-4 offset-4">
+    <div class="content-fluid">
+        <div class="form-group">
+                <h4>Sign in</h4>
+        </div>
+        <hr>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username"
+                    required
+                    [(ngModel)]="credentials.username" name="username" #name="ngModel">
+            <!--<div *ngIf="username.invalid && (username.dirty || username.touched)"
+            class="alert alert-danger">
+                <div *ngIf="username.errors.required">
+                Userame is required.
+                </div> 
+            </div>--> 
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password"
+                    required
+                    [(ngModel)]="credentials.password" name="password" #name="ngModel">
+            <!--<div *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="alert alert-danger">
+                <div *ngIf="password.errors.required">
+                Password is required.
+                </div> 
+            </div>--> 
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-lg btn-info btn-circle" (click)="onSubmit()">Login</button>
+        </div>
+    </div>
+</div>

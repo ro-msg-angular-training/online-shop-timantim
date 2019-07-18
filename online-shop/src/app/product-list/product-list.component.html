@@ -1,8 +1,8 @@
 <div>
         <h1>Products
                 <div class="float-right">
-                        <a [routerLink]="['/cart']"><button class="btn btn-lg btn-info btn-circle"><i class="fa fa-shopping-cart"></i></button></a>
-                        <a [routerLink]="['/products/new']"><button class="btn btn-lg btn-info btn-circle ml-2">Add Product</button></a>
+                        <a *ngIf="isCustomer" [routerLink]="['/cart']"><button class="btn btn-lg btn-info btn-circle"><i class="fa fa-shopping-cart"></i></button></a>
+                        <a *ngIf="isAdmin" [routerLink]="['/products/new']"><button class="btn btn-lg btn-info btn-circle ml-2">Add Product</button></a>
                 </div>
         </h1>   
         
