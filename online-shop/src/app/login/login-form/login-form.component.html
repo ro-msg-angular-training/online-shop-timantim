@@ -1,35 +1,33 @@
 <div class="jumbotron col-4 offset-4">
     <div class="content-fluid">
         <div class="form-group">
-            <h4>Sign in</h4>
+            <h4 class="mat-h1">Sign in <i class="fa fa-user"></i></h4>
         </div>
-        <hr>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" required [(ngModel)]="credentials.username"
-                name="username" #name="ngModel">
-            <!--<div *ngIf="username.invalid && (username.dirty || username.touched)"
-            class="alert alert-danger">
+        <mat-divider class="mb-3"></mat-divider>
+        <mat-form-field class="form-group">
+            <mat-label for="username">Username</mat-label>
+            <input matInput type="text" id="username" required [(ngModel)]="credentials.username" name="username"
+                #username="ngModel">
+            <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">
                 <div *ngIf="username.errors.required">
-                Userame is required.
-                </div> 
-            </div>-->
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" required [(ngModel)]="credentials.password"
-                name="password" #name="ngModel">
-            <!--<div *ngIf="password.invalid && (password.dirty || password.touched)"
-            class="alert alert-danger">
+                    Userame is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-group">
+            <mat-label for="password">Password</mat-label>
+            <input matInput type="password" id="password" required [(ngModel)]="credentials.password" name="password"
+                #password="ngModel">
+            <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
                 <div *ngIf="password.errors.required">
-                Password is required.
-                </div> 
-            </div>-->
-        </div>
+                    Password is required.
+                </div>
+            </mat-error>
+        </mat-form-field>
+        <mat-error class="alert alert-danger" role="alert" *ngIf="error">Login failed! Could not log you in with those credentials!</mat-error>
         <div class="mt-4">
-            <div *ngIf="error" class="alert alert-danger">Login failed! Could not log you in with those credentials!
-            </div>
-            <button class="btn btn-lg btn-info btn-circle" (click)="onSubmit()">Login</button>
+            <button mat-raised-button color="primary" class="btn btn-lg btn-info btn-circle"
+                (click)="onSubmit()">Login</button>
         </div>
     </div>
 </div>

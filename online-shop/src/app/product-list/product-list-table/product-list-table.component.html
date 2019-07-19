@@ -1,16 +1,16 @@
-<table class="table table-hover mt-5">
-    <thead>
-        <tr class="thead-dark">
-            <th>Category</th>
-            <th>Product Name</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let productHeader of productHeaders">
-            <td>{{ productHeader.category }}</td>
-            <td><a [routerLink]="['/product', productHeader.id]">{{ productHeader.name }}</a></td>
-            <td>{{ productHeader.price }}</td>
-        </tr>
-    </tbody>
+<table mat-table [dataSource]="productHeaders" class="mat-elevation-z8" id="productstable" >
+    <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Category </th>
+        <td mat-cell *matCellDef="let productHeader"> {{ productHeader.category }} </td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Product Name </th>
+        <td mat-cell *matCellDef="let productHeader"><a [routerLink]="['/product', productHeader.id]" class="md-accent">{{ productHeader.name }}</a></td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Category </th>
+        <td mat-cell *matCellDef="let productHeader"> {{ productHeader.price }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="['category', 'name', 'price']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['category', 'name', 'price'];"></tr>
 </table>

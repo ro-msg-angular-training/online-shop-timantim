@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CartItem } from 'src/app/core/models/cart-item.model';
 
 @Component({
@@ -6,15 +6,12 @@ import { CartItem } from 'src/app/core/models/cart-item.model';
   templateUrl: './cart-table.component.html',
   styleUrls: ['./cart-table.component.css']
 })
-export class CartTableComponent implements OnInit {
+export class CartTableComponent {
   @Input() cartItems: CartItem[]
   @Output() incrementQuantity = new EventEmitter()
   @Output() decrementQuantity = new EventEmitter()
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   incrementItemQuantity(cartItem: CartItem) {
     this.incrementQuantity.emit(cartItem);

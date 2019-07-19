@@ -10,12 +10,12 @@ export class LoginFormComponent implements OnInit {
 
   @Input() login: Function;
   @Input() error: string;
-  credentials: Credentials = new Credentials();
+  credentials: Credentials;
 
   constructor() { }
 
   ngOnInit() {
-
+    this.credentials = new Credentials();
   }
 
   onSubmit() {

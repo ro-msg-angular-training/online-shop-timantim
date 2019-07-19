@@ -24,6 +24,13 @@ import { CartService } from './core/services/cart.service';
 import { OrderService } from './core/services/order.service';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule, MatButtonModule, MatTableModule, MatPaginatorModule, MatSortModule, MatDividerModule, MatProgressSpinnerModule, MatCardModule } from '@angular/material';
+import { ProductListMenuComponent } from './product-list/product-list-menu/product-list-menu.component';
+import { CartEmptyWarningComponent } from './cart/cart-empty-warning/cart-empty-warning.component';
+import { CartMenuComponent } from './cart/cart-menu/cart-menu.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,13 +46,25 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
     CartTableComponent,
     PageNotFoundComponent,
     ProductFieldsComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ProductListMenuComponent,
+    CartEmptyWarningComponent,
+    CartMenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [ProductService, CartService, OrderService, AuthGuard],
   bootstrap: [AppComponent]

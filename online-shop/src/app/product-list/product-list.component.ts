@@ -3,6 +3,7 @@ import { ProductHeader } from '../core/models/product-header.model';
 import { HttpClient } from '@angular/common/http';
 import { ProductService } from '../core/services/product.service';
 import { AuthenticationService } from '../core/services/authentication.service';
+import { CartService } from '../core/services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -15,6 +16,7 @@ export class ProductListComponent implements OnInit{
   private isCustomer : boolean;
 
   constructor(private authenticationService : AuthenticationService,
+      private cartService : CartService,
       private productService : ProductService) { }  
 
   ngOnInit() {

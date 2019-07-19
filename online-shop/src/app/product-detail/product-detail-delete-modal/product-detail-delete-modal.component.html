@@ -12,8 +12,8 @@
                 <h5>Are you sure you want to remove the "{{ product.name }}" product?</h5>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-danger" (click)="doDelete()"
+                <button mat-raised-button color="basic" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button mat-raised-button color="warn" type="button" class="btn btn-danger" (click)="doDelete()"
                     data-dismiss="modal">Confirm</button>
             </div>
         </div>

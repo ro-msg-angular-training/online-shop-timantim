@@ -1,13 +1,2 @@
-<div>
-        <h1>Products
-                <div class="float-right">
-                        <a *ngIf="isCustomer" [routerLink]="['/cart']"><button class="btn btn-lg btn-info btn-circle"><i
-                                                class="fa fa-shopping-cart"></i></button></a>
-                        <a *ngIf="isAdmin" [routerLink]="['/products/new']"><button
-                                        class="btn btn-lg btn-info btn-circle ml-2">Add Product</button></a>
-                </div>
-        </h1>
-
-</div>
-<hr>
+<app-product-list-menu [isAdmin]="isAdmin" [isCustomer]="isCustomer"></app-product-list-menu>
 <app-product-list-table [productHeaders]="productHeaders"></app-product-list-table>
