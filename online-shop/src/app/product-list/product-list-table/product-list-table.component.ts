@@ -6,10 +6,8 @@ import { ProductHeader } from 'src/app/core/models/product-header.model';
   templateUrl: './product-list-table.component.html',
   styleUrls: ['./product-list-table.component.css']
 })
-export class ProductListTableComponent{
+export class ProductListTableComponent {
   @Input() productHeaders: ProductHeader[]
 
   constructor() { }
-
-
 }

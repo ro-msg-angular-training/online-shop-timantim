@@ -18,7 +18,7 @@ export class CartTableComponent {
   }
 
   decrementItemQuantity(cartItem: CartItem) {
-    this.decrementQuantity.emit(cartItem); 
+    this.decrementQuantity.emit(cartItem);
   }
 
 }

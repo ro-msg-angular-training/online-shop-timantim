@@ -1,11 +1,12 @@
-<table mat-table [dataSource]="productHeaders" class="mat-elevation-z8" id="productstable" >
+<table mat-table [dataSource]="productHeaders" class="mat-elevation-z8" id="productstable">
     <ng-container matColumnDef="category">
         <th mat-header-cell *matHeaderCellDef> Category </th>
         <td mat-cell *matCellDef="let productHeader"> {{ productHeader.category }} </td>
     </ng-container>
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Product Name </th>
-        <td mat-cell *matCellDef="let productHeader"><a [routerLink]="['/product', productHeader.id]" class="md-accent">{{ productHeader.name }}</a></td>
+        <td mat-cell *matCellDef="let productHeader"><a [routerLink]="['/product', productHeader.id]"
+                class="md-accent">{{ productHeader.name }}</a></td>
     </ng-container>
     <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef> Category </th>

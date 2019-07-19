@@ -8,8 +8,8 @@ import { ProductService } from '../core/services/product.service';
   templateUrl: './product-edit.component.html'
 })
 export class ProductEditComponent implements OnInit {
-  product : Product;
-  id : number;
+  product: Product;
+  id: number;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -23,7 +23,7 @@ export class ProductEditComponent implements OnInit {
       );
   }
 
-  saveProduct(product : Product) {
+  saveProduct(product: Product) {
     this.productService.updateProduct(product).subscribe()
     this.router.navigate(['..']);
   }

@@ -7,9 +7,9 @@ import { Product } from '../core/models/product.model';
   styleUrls: ['./product-fields.component.css']
 })
 export class ProductFieldsComponent {
-  @Input() product : Product;
+  @Input() product: Product;
   @Output() saveProduct = new EventEmitter();
-  
+
   constructor() { }
 
   doSave() {

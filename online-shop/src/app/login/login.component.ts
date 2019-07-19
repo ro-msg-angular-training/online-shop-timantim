@@ -8,15 +8,11 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   private error: string;
 
   constructor(private router: Router,
     private authenticationService: AuthenticationService) { }
-
-  ngOnInit() {
-
-  }
 
   login(credentials: Credentials) {
     this.authenticationService.login(credentials)

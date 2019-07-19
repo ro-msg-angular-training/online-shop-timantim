@@ -9,15 +9,15 @@ import { CartService } from '../core/services/cart.service';
   selector: 'app-product-list',
   templateUrl: './product-list.component.html'
 })
-export class ProductListComponent implements OnInit{
+export class ProductListComponent implements OnInit {
 
-  productHeaders : ProductHeader[] = []
-  private isAdmin : boolean;
-  private isCustomer : boolean;
+  productHeaders: ProductHeader[] = []
+  private isAdmin: boolean;
+  private isCustomer: boolean;
 
-  constructor(private authenticationService : AuthenticationService,
-      private cartService : CartService,
-      private productService : ProductService) { }  
+  constructor(private authenticationService: AuthenticationService,
+    private cartService: CartService,
+    private productService: ProductService) { }
 
   ngOnInit() {
     this.productService.getProducts()

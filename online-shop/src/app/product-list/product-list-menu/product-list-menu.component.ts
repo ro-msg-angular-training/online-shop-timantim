@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./product-list-menu.component.css']
 })
 export class ProductListMenuComponent {
-  @Input() isAdmin : boolean;
-  @Input() isCustomer : boolean;
+  @Input() isAdmin: boolean;
+  @Input() isCustomer: boolean;
   constructor() { }
 
 }

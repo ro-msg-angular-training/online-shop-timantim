@@ -4,11 +4,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-cart-empty-warning',
   template: '<div class="alert alert-warning" role="alert">Cart is empty!</div>'
 })
-export class CartEmptyWarningComponent implements OnInit {
+export class CartEmptyWarningComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }
