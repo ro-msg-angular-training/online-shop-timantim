@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  private error: string;
+  error: string;
 
   constructor(private router: Router,
     private authenticationService: AuthenticationService) { }

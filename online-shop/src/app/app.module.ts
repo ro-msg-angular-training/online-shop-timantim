@@ -29,6 +29,7 @@ import { MatInputModule, MatButtonModule, MatTableModule, MatPaginatorModule, Ma
 import { ProductListMenuComponent } from './product-list/product-list-menu/product-list-menu.component';
 import { CartEmptyWarningComponent } from './cart/cart-empty-warning/cart-empty-warning.component';
 import { CartMenuComponent } from './cart/cart-menu/cart-menu.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { CartMenuComponent } from './cart/cart-menu/cart-menu.component';
     LoginFormComponent,
     ProductListMenuComponent,
     CartEmptyWarningComponent,
-    CartMenuComponent
+    CartMenuComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -12,8 +12,8 @@ import { CartService } from '../core/services/cart.service';
 export class ProductListComponent implements OnInit {
 
   productHeaders: ProductHeader[] = []
-  private isAdmin: boolean;
-  private isCustomer: boolean;
+  isAdmin: boolean;
+  isCustomer: boolean;
 
   constructor(private authenticationService: AuthenticationService,
     private cartService: CartService,

@@ -21,8 +21,8 @@ export class AuthenticationService {
     }
 
     login(credentials: Credentials) {
-        let username: string = credentials.username
-        let password: string = credentials.password
+        let username: string = credentials.username;
+        let password: string = credentials.password;
         return this.http.post<any>(`http://localhost:3000/login`, { username, password })
             .pipe(map(user => {
                 if (user) {
@@ -43,5 +43,9 @@ export class AuthenticationService {
 
     public get isCustomer() {
         return this.user.roles.includes("customer");
+    }
+
+    public get isLogged() {
+        return this.user != null;
     }
 }

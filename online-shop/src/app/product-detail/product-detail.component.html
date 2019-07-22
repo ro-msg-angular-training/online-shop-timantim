@@ -1,20 +1,21 @@
+<app-header></app-header>
 <div class="container" *ngIf="product">
     <h1>
         <span class="mat-headline">{{ product.name }}</span>
         <div class="float-right">
             <button mat-raised-button color="primary" *ngIf="isCustomer" type="button"
-                class="btn btn-lg btn-info btn-circle mr-2" (click)="addToCart()">Add to <i
+                class="btn btn-lg btn-info btn-circle mr-2" (click)="addToCart()"><span i18n>Add to </span><i
                     class="fa fa-shopping-cart"></i></button>
             <a *ngIf="isAdmin" [routerLink]="['/product', product.id, 'edit']"><button mat-raised-button color="accent"
-                    class="btn btn-lg btn-success btn-circle">Edit</button></a>
+                    class="btn btn-lg btn-success btn-circle"><span i18n>Edit</span></button></a>
             <button mat-raised-button color="warn" *ngIf="isAdmin" type="button"
                 class="btn btn-lg btn-danger btn-circle ml-2" data-toggle="modal"
-                data-target="#deleteModalCenter">Delete</button>
-            <app-product-detail-delete-modal [product]="product" (deleteProduct)="deleteProduct($event)">
+                data-target="#deleteModalCenter"><span i18n>Delete</span></button>
+            <app-product-detail-delete-modal [product]="product" (deleteProduct)="deleteProduct()">
             </app-product-detail-delete-modal>
         </div>
     </h1>
     <a [routerLink]="['/products']"><button mat-raised-button color="basic" type="button"
-            class="btn btn-sm btn-secondary btn-circle sm-2"><i class="fa fa-arrow-left"></i> Return</button></a>
+            class="btn btn-sm btn-secondary btn-circle sm-2"><i class="fa fa-arrow-left"></i> <span i18n>Return</span></button></a>
     <app-product-detail-fields [product]="product"></app-product-detail-fields>
 </div>

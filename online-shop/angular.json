@@ -52,6 +52,14 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "ro": {
+              "aot": true,
+              "outputPath": "dist/online-shop-ro/",
+              "i18nFile": "src/locale/messages.ro.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ro",
+              "i18nMissingTranslation": "error"
             }
           }
         },
@@ -63,6 +71,9 @@
           "configurations": {
             "production": {
               "browserTarget": "online-shop:build:production"
+            },
+            "ro" : {
+              "browserTarget": "online-shop:build:ro"
             }
           }
         },
