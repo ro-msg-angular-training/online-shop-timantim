@@ -30,8 +30,6 @@ export class ProductDetailComponent implements OnInit {
       .subscribe(
         product => this.product = product,
       );
-    this.isAdmin = this.authenticationService.isAdmin;
-    this.isCustomer = this.authenticationService.isCustomer;
   }
 
   deleteProduct() {

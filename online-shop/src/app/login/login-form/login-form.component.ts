@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Credentials } from 'src/app/core/models/credentials.model';
 
 @Component({
@@ -8,7 +8,7 @@ import { Credentials } from 'src/app/core/models/credentials.model';
 })
 export class LoginFormComponent implements OnInit {
 
-  @Input() login: Function;
+  @Output() login = new EventEmitter()
   @Input() error: string;
   credentials: Credentials;
 
@@ -19,7 +19,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.login(this.credentials);
+    this.login.emit(this.credentials);
   }
 
 }

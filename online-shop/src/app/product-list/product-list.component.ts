@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ProductService } from '../core/services/product.service';
 import { AuthenticationService } from '../core/services/authentication.service';
 import { CartService } from '../core/services/cart.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -12,11 +13,11 @@ import { CartService } from '../core/services/cart.service';
 export class ProductListComponent implements OnInit {
 
   productHeaders: ProductHeader[] = []
+  user$: Observable<any>;
   isAdmin: boolean;
   isCustomer: boolean;
 
-  constructor(private authenticationService: AuthenticationService,
-    private cartService: CartService,
+  constructor(private authenticationService : AuthenticationService,
     private productService: ProductService) { }
 
   ngOnInit() {
@@ -24,8 +25,6 @@ export class ProductListComponent implements OnInit {
       .subscribe(
         productHeaders => this.productHeaders = productHeaders,
       );
-    this.isAdmin = this.authenticationService.isAdmin;
-    this.isCustomer = this.authenticationService.isCustomer;
   }
 
 }

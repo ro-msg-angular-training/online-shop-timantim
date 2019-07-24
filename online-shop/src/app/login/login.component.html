@@ -1,1 +1,1 @@
-<app-login-form [login]="login.bind(this)" [error]="error"></app-login-form>
+<app-login-form (login)="login($event)" [error]="state$.errorMessage | async"></app-login-form>

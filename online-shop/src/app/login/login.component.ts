@@ -1,28 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Credentials } from '../core/models/credentials.model';
-import { AuthenticationService } from '../core/services/authentication.service';
-import { first } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { AppState, selectAuthState } from '../store/app.states';
+import { LogIn } from '../store/actions/user.actions';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  error: string;
+  credentials : Credentials = new Credentials();
+  state$: Observable<any>;
+  errorMessage: string | null;
 
-  constructor(private router: Router,
-    private authenticationService: AuthenticationService) { }
+  constructor(
+    private store: Store<AppState>
+  ) {
+    this.state$ = this.store.select(selectAuthState);
+  }
 
-  login(credentials: Credentials) {
-    this.authenticationService.login(credentials)
-      .subscribe(
-        data => {
-          this.router.navigateByUrl('products');
-        },
-        error => {
-          this.error = error.message;
-        });
+  ngOnInit() {
+  };
+
+  login(credentials : Credentials): void {
+    this.store.dispatch(new LogIn(credentials));
   }
 
 }

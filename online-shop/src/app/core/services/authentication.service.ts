@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { User } from '../models/user.model';
-import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Credentials } from '../models/credentials.model';
@@ -28,7 +27,6 @@ export class AuthenticationService {
                 if (user) {
                     this.user = user;
                 }
-
                 return user;
             }));
     }
@@ -37,11 +35,11 @@ export class AuthenticationService {
         this.user = null;
     }
 
-    public get isAdmin() {
+    public isAdmin() {
         return this.user.roles.includes("admin");
     }
 
-    public get isCustomer() {
+    public isCustomer() {
         return this.user.roles.includes("customer");
     }
 

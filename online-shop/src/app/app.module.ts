@@ -30,6 +30,10 @@ import { ProductListMenuComponent } from './product-list/product-list-menu/produ
 import { CartEmptyWarningComponent } from './cart/cart-empty-warning/cart-empty-warning.component';
 import { CartMenuComponent } from './cart/cart-menu/cart-menu.component';
 import { HeaderComponent } from './header/header.component';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './store/effects/auth.effects';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/app.states';
 
 
 @NgModule({
@@ -59,6 +63,8 @@ import { HeaderComponent } from './header/header.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot(reducers, {}),
+    EffectsModule.forRoot([AuthEffects]),
     MatInputModule,
     MatButtonModule,
     MatTableModule,
