@@ -18,8 +18,4 @@ export class LoginFormComponent implements OnInit {
     this.credentials = new Credentials();
   }
 
-  onSubmit() {
-    this.login.emit(this.credentials);
-  }
-
 }

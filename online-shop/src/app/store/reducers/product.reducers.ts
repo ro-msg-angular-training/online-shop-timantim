@@ -1,21 +1,7 @@
-import { Product } from 'src/app/core/models/product.model';
 import { ProductActionTypes, All } from '../actions/product.actions';
+import { initialProductState, ProductState } from '../states/product.states';
 
-export interface State {
-    products: Product[] | null;
-    selectedProduct: Product | null;
-    errorMessage: string | null;
-    loading: boolean;
-}
-
-export const initialState: State = {
-    products: null,
-    selectedProduct: null,
-    errorMessage: null,
-    loading: false
-};
-
-export function reducer(state = initialState, action: All): State {
+export function reducer(state = initialProductState, action: All): ProductState {
     switch (action.type) {
         // Create
         case ProductActionTypes.CREATEPRODUCT: {
@@ -51,7 +37,7 @@ export function reducer(state = initialState, action: All): State {
         case ProductActionTypes.GETPRODUCT_SUCCESS: {
             return {
                 ...state,
-                selectedProduct: action.payload.product,
+                selectedProduct: action.payload,
                 loading: false,
                 errorMessage: null
             };
@@ -73,7 +59,7 @@ export function reducer(state = initialState, action: All): State {
         case ProductActionTypes.GETPRODUCTS_SUCCESS: {
             return {
                 ...state,
-                products: action.payload.products,
+                products: action.payload,
                 loading: false,
                 errorMessage: null
             };

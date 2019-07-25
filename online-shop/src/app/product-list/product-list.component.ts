@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductHeader } from '../core/models/product-header.model';
-import { HttpClient } from '@angular/common/http';
 import { ProductService } from '../core/services/product.service';
 import { AuthenticationService } from '../core/services/authentication.service';
-import { CartService } from '../core/services/cart.service';
 import { Observable } from 'rxjs';
+import { AuthState } from '../store/states/auth.states';
+import { selectAuthState, AppState } from '../store/app.states';
+import { Store } from '@ngrx/store';
+import { GetProducts } from '../store/actions/product.actions';
+import { getProducts } from '../store/selectors/product.selectors';
 
 @Component({
   selector: 'app-product-list',
@@ -13,18 +16,21 @@ import { Observable } from 'rxjs';
 export class ProductListComponent implements OnInit {
 
   productHeaders: ProductHeader[] = []
-  user$: Observable<any>;
-  isAdmin: boolean;
-  isCustomer: boolean;
+  user$: Observable<AuthState>;
+  products$: Observable<ProductHeader[] | null>;
 
   constructor(private authenticationService : AuthenticationService,
-    private productService: ProductService) { }
+    private store: Store<AppState>) { 
+      this.user$ = this.store.select(selectAuthState);
+      this.products$ = this.store.select(getProducts);
+    }
 
   ngOnInit() {
-    this.productService.getProducts()
-      .subscribe(
-        productHeaders => this.productHeaders = productHeaders,
-      );
+   // this.productService.getProducts()
+     // .subscribe(
+      //  productHeaders => this.productHeaders = productHeaders,
+      //);
+     this.store.dispatch(new GetProducts());
   }
 
 }

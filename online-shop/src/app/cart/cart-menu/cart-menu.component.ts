@@ -9,8 +9,4 @@ export class CartMenuComponent {
 
   constructor() { }
 
-  doCheckout() {
-    this.checkout.emit();
-  }
-
 }

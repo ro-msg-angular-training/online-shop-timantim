@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../core/models/product.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../core/services/product.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/app.states';
+import { CreateProduct } from '../store/actions/product.actions';
 
 @Component({
   selector: 'app-product-add',
@@ -14,10 +17,10 @@ export class ProductAddComponent {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private productService: ProductService) { }
+    private store: Store<AppState>) { }
 
   saveProduct(product: Product) {
-    this.productService.addProduct(product).subscribe()
+    this.store.dispatch(new CreateProduct(product));
     this.router.navigate(['..']);
   }
 

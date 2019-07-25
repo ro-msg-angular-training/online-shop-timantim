@@ -34,6 +34,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effects/auth.effects';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/app.states';
+import { ProductEffects } from './store/effects/product.effects';
 
 
 @NgModule({
@@ -64,7 +65,7 @@ import { reducers } from './store/app.states';
     FormsModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, {}),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, ProductEffects]),
     MatInputModule,
     MatButtonModule,
     MatTableModule,
