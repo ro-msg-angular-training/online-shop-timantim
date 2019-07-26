@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductHeader } from '../core/models/product-header.model';
-import { ProductService } from '../core/services/product.service';
 import { AuthenticationService } from '../core/services/authentication.service';
 import { Observable } from 'rxjs';
 import { AuthState } from '../store/states/auth.states';
@@ -19,18 +18,14 @@ export class ProductListComponent implements OnInit {
   user$: Observable<AuthState>;
   products$: Observable<ProductHeader[] | null>;
 
-  constructor(private authenticationService : AuthenticationService,
-    private store: Store<AppState>) { 
-      this.user$ = this.store.select(selectAuthState);
-      this.products$ = this.store.select(getProducts);
-    }
+  constructor(private authenticationService: AuthenticationService,
+    private store: Store<AppState>) {
+    this.user$ = this.store.select(selectAuthState);
+    this.products$ = this.store.select(getProducts);
+  }
 
   ngOnInit() {
-   // this.productService.getProducts()
-     // .subscribe(
-      //  productHeaders => this.productHeaders = productHeaders,
-      //);
-     this.store.dispatch(new GetProducts());
+    this.store.dispatch(new GetProducts());
   }
 
 }

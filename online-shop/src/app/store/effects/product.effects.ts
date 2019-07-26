@@ -12,88 +12,88 @@ import { Product } from 'src/app/core/models/product.model';
 @Injectable()
 export class ProductEffects {
 
-  constructor(
-    private actions$: Actions,
-    private productService: ProductService,
-    private router: Router,
-  ) {}
+    constructor(
+        private actions$: Actions,
+        private productService: ProductService,
+        private router: Router,
+    ) { }
 
     // Create Product
     @Effect()
     CreateProduct: Observable<any> = this.actions$
-    .pipe(
-    ofType<CreateProduct>(ProductActionTypes.CREATEPRODUCT),
-    map((action: CreateProduct) => action.payload),
-    switchMap(payload => {
-        return this.productService.addProduct(payload).pipe(
-        map(() => {
-            new CreateProductSuccess({product: payload});
-        }),
-        catchError((error) => {
-            return of(new CreateProductFailure({ error: error }));
-        }));
-    }));
-    
+        .pipe(
+            ofType<CreateProduct>(ProductActionTypes.CREATEPRODUCT),
+            map((action: CreateProduct) => action.payload),
+            switchMap(payload => {
+                return this.productService.addProduct(payload).pipe(
+                    map(() => {
+                        new CreateProductSuccess({ product: payload });
+                    }),
+                    catchError((error) => {
+                        return of(new CreateProductFailure({ error: error }));
+                    }));
+            }));
+
     // Get Product
     @Effect()
     GetProduct: Observable<any> = this.actions$
-    .pipe(
-    ofType<GetProduct>(ProductActionTypes.GETPRODUCT),
-    map((action: GetProduct) => action.payload),
-    switchMap(payload => {
-        return this.productService.getProduct(payload).pipe(
-        map((product : Product) => {
-            return new GetProductSuccess(product);
-        }),
-        catchError((error) => {
-            return of(new GetProductFailure({ error: error }));
-        }));
-    }));
+        .pipe(
+            ofType<GetProduct>(ProductActionTypes.GETPRODUCT),
+            map((action: GetProduct) => action.payload),
+            switchMap(payload => {
+                return this.productService.getProduct(payload).pipe(
+                    map((product: Product) => {
+                        return new GetProductSuccess(product);
+                    }),
+                    catchError((error) => {
+                        return of(new GetProductFailure({ error: error }));
+                    }));
+            }));
 
     // Get Products
     @Effect()
     getProducts: Observable<any> = this.actions$
-    .pipe(
-    ofType<GetProducts>(ProductActionTypes.GETPRODUCTS),
-    switchMap(() => {
-        return this.productService.getProducts().pipe(
-        map((products : ProductHeader[]) => {
-            return new GetProductsSuccess(products);
-        }),
-        catchError((error) => {
-            return of(new GetProductsFailure({ error: error }));
-        }));
-    }));
+        .pipe(
+            ofType<GetProducts>(ProductActionTypes.GETPRODUCTS),
+            switchMap(() => {
+                return this.productService.getProducts().pipe(
+                    map((products: ProductHeader[]) => {
+                        return new GetProductsSuccess(products);
+                    }),
+                    catchError((error) => {
+                        return of(new GetProductsFailure({ error: error }));
+                    }));
+            }));
 
     // Update Product
     @Effect()
     UpdateProduct: Observable<any> = this.actions$
-    .pipe(
-    ofType<UpdateProduct>(ProductActionTypes.UPDATEPRODUCT),
-    map((action: UpdateProduct) => action.payload),
-    switchMap(payload => {
-        return this.productService.updateProduct(payload).pipe(
-        map(() => {
-            new UpdateProductSuccess({product: payload});
-        }),
-        catchError((error) => {
-            return of(new UpdateProductFailure({ error: error }));
-        }));
-    }));
+        .pipe(
+            ofType<UpdateProduct>(ProductActionTypes.UPDATEPRODUCT),
+            map((action: UpdateProduct) => action.payload),
+            switchMap(payload => {
+                return this.productService.updateProduct(payload).pipe(
+                    map(() => {
+                        new UpdateProductSuccess({ product: payload });
+                    }),
+                    catchError((error) => {
+                        return of(new UpdateProductFailure({ error: error }));
+                    }));
+            }));
 
     // Delete Product
     @Effect()
     DeleteProduct: Observable<any> = this.actions$
-    .pipe(
-    ofType<DeleteProduct>(ProductActionTypes.DELETEPRODUCT),
-    map((action: DeleteProduct) => action.payload),
-    switchMap(payload => {
-        return this.productService.deleteProduct(payload).pipe(
-        map(() => {
-            new DeleteProductSuccess({product: payload});
-        }),
-        catchError((error) => {
-            return of(new DeleteProductFailure({ error: error }));
-        }));
-    }));
+        .pipe(
+            ofType<DeleteProduct>(ProductActionTypes.DELETEPRODUCT),
+            map((action: DeleteProduct) => action.payload),
+            switchMap(payload => {
+                return this.productService.deleteProduct(payload).pipe(
+                    map(() => {
+                        new DeleteProductSuccess({ product: payload });
+                    }),
+                    catchError((error) => {
+                        return of(new DeleteProductFailure({ error: error }));
+                    }));
+            }));
 }

@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Credentials } from '../core/models/credentials.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -11,7 +11,7 @@ import { AuthState } from '../store/states/auth.states';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  credentials : Credentials = new Credentials();
+  credentials: Credentials = new Credentials();
   users$: Observable<AuthState>;
   errorMessage: string | null;
 
@@ -19,7 +19,7 @@ export class LoginComponent {
     this.users$ = this.store.select(selectAuthState);
   }
 
-  login(credentials : Credentials): void {
+  login(credentials: Credentials): void {
     this.store.dispatch(new LogIn(credentials));
   }
 
