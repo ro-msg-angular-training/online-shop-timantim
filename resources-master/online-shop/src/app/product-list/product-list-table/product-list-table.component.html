@@ -1,0 +1,16 @@
+<table class="table table-hover mt-5">
+    <thead>
+        <tr class="thead-dark">
+            <th>Category</th>
+            <th>Product Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let productHeader of productHeaders">
+            <td>{{ productHeader.category }}</td>
+            <td><a [routerLink]="['/product', productHeader.id]">{{ productHeader.name }}</a></td>
+            <td>{{ productHeader.price }}</td>
+        </tr>
+    </tbody>
+</table>
